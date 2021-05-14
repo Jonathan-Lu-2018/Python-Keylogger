@@ -1,6 +1,7 @@
 # CS 166 KeyLogger Project 
 
 Our keylogger supports the following features:
+
     * Logging keystrokes
     * Sending data to a local Gmail address
     * Capturing screenshots
